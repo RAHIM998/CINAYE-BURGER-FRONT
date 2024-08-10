@@ -1,0 +1,73 @@
+<div class="user-form">
+  <h3>Formulaire {{this.id ? 'de modification' : 'd\'ajout '}} des utilisateur</h3>
+  
+  <form [formGroup]="userForm" (ngSubmit)="addUser()">
+    
+    <!-- Nom -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-icon matPrefix>person</mat-icon>
+      <input matInput type="text" placeholder="Nom" formControlName="name">
+      <mat-error *ngIf="userForm.get('name')?.hasError('required')">
+        Le nom est obligatoire !!
+      </mat-error>
+      <mat-error *ngIf="userForm.get('name')?.hasError('minlength')">
+        Le nom doit contenir au moins 2 caractères !!
+      </mat-error>
+      <mat-error *ngIf="userForm.get('name')?.hasError('pattern')">
+        Le nom ne peut contenir que des lettres et des espaces !!
+      </mat-error>
+    </mat-form-field>
+    
+    <!-- Email -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-icon matPrefix>email</mat-icon>
+      <input matInput type="email" placeholder="Email" formControlName="email">
+      <mat-error *ngIf="userForm.get('email')?.hasError('required')">
+        L'email est obligatoire !!
+      </mat-error>
+      <mat-error *ngIf="userForm.get('email')?.hasError('email')">
+        L'email doit être une adresse valide !!
+      </mat-error>
+    </mat-form-field>
+    
+    <!-- Téléphone -->
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-icon matPrefix>phone</mat-icon>
+      <input matInput type="tel" placeholder="Téléphone" formControlName="telephone">
+      <mat-error *ngIf="userForm.get('telephone')?.hasError('required')">
+        Le téléphone est obligatoire !!
+      </mat-error>
+      <mat-error *ngIf="userForm.get('telephone')?.hasError('pattern')">
+        Le numéro de téléphone doit contenir uniquement des chiffres et éventuellement un signe + au début !!
+      </mat-error>
+    </mat-form-field>
+    
+    <!-- Mot de passe -->
+    <mat-form-field appearance="fill" class="full-width" *ngIf="!id">
+      <mat-icon matPrefix>lock</mat-icon>
+      <input matInput type="password" placeholder="Mot de passe" formControlName="password">
+      <mat-error *ngIf="userForm.get('password')?.hasError('required')">
+        Le mot de passe est obligatoire !!
+      </mat-error>
+      <mat-error *ngIf="userForm.get('password')?.hasError('minlength')">
+        Pour des raisons de sécurité, le mot de passe doit contenir au moins 4 caractères !!
+      </mat-error>
+    </mat-form-field>
+
+    <!-- Confirmer le mot de passe -->
+    <mat-form-field appearance="fill" class="full-width" *ngIf="!id">
+      <mat-icon matPrefix>lock</mat-icon>
+      <input matInput type="password" placeholder="Confirmer le mot de passe" formControlName="confirmPassword">
+      <mat-error *ngIf="userForm.get('confirmPassword')?.touched && userForm.get('confirmPassword')?.hasError('required')">
+        La confirmation du mot de passe est obligatoire !!
+      </mat-error>
+      <mat-error *ngIf="userForm.get('confirmPassword')?.touched && userForm.get('confirmPassword')?.hasError('passwordMismatch')">
+        Les mots de passe ne correspondent pas !!
+      </mat-error>
+    </mat-form-field>
+    <div class="button-group">
+      <button mat-raised-button color="primary" type="submit">{{this.id ? 'Modifier' : 'Ajouter'}}</button>
+      <button mat-raised-button color="warn" type="reset">Annuler</button>
+    </div>
+  </form>
+</div>
