@@ -1,0 +1,14 @@
+<div class="user-details container mt-5">
+    <div *ngIf="error" class="error"> {{ error }}</div>
+    <div *ngIf="payment">
+      <h1>Détails du paiement</h1>
+      <mat-card class="user-card mt-5">
+        <mat-card-content>
+          <p><strong>Numéro de commande :</strong> {{payment.orders_id}}</p>
+          <p><strong>Date de paiement :</strong> {{payment.payment_date}}</p>
+          <p><strong>Montant total :</strong> {{payment.amountOrder}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  

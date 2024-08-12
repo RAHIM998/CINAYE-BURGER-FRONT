@@ -1,0 +1,17 @@
+<div class="burger-details container">
+    <div *ngIf="error" class="error"> {{ error }}</div>
+    <div *ngIf="burger">
+      <h1>Détails du Burger</h1>
+      <mat-card class="burger-card">
+        <mat-card-content>
+          <div class="image-container">
+            <img *ngIf="burger.image" [src]="'data:image/jpeg;base64,' + burger.image" alt="Burger Image" class="burger-image">
+          </div>
+          <p><strong>Nom :</strong> {{ burger.name }}</p>
+          <p><strong>Prix :</strong> {{ burger.price | currency:'EUR' }}</p>
+          <p><strong>Description :</strong> {{ burger.description }}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  

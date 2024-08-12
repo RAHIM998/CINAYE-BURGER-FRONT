@@ -83,7 +83,7 @@ export class FormUsersComponent implements OnInit {
     if (this.userForm.valid) {
 
       if(this.id){
-        this.userService.updateUser(newUser, this.id, ).subscribe(
+        this.userService.updateUser(newUser, this.id).subscribe(
           (response) => {   
             Swal.fire({
               icon: 'success',

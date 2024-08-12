@@ -1,0 +1,38 @@
+
+
+.burger-details {
+    padding: 10px;
+    max-width: 600px;
+    height: auto;
+    background: linear-gradient(90deg, #78909C, #90A4AE);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #ffffff;
+  }
+  
+  .burger-card {
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  .image-container {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .burger-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  p {
+    font-size: 18px;
+  }
+  

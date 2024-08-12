@@ -1,0 +1,47 @@
+.navbar-nav {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .nav-item {
+    text-align: center;
+  }
+  
+  .nav-item .nav-link {
+    font-size: 15px; /* Ajuste la taille des icônes si nécessaire */
+  }
+  
+  .nav-link {
+    font-size: 11px; /* Taille du texte */
+  }
+  
+  .nav-link i {
+    font-size: 10px; /* Taille des icônes */
+  }
+  
+  .custom-navbar {
+    background: linear-gradient(90deg, rgba(34,34,34,1) 0%, rgba(36,123,160,1) 100%);
+    /* Dégradé du noir clair au bleu */
+  }
+  
+  .navbar-brand, .nav-link {
+    color: #ffffff !important; /* Écriture en blanc */
+  }
+  
+  .nav-link:hover {
+    color: #b8daff !important; /* Couleur des liens au survol */
+  }
+  
+  .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5); /* Couleur de la bordure du toggler */
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28%255, %255, %255, 0.5%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    /* Couleur de l'icône du toggler en blanc avec opacité */
+  }
+  
+  .nav-item i {
+    font-size: 14px; /* Taille des icônes */
+  }
+  

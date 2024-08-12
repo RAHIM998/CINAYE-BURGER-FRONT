@@ -1,0 +1,15 @@
+.table thead th {
+    background-color: #546E7A; 
+    color: #ffffff; 
+}
+
+.table tbody tr {
+    background-color: #90A4AE; 
+    color: #ffffff;
+}
+
+h1{
+    color: #546E7A;
+    text-align: center;
+    
+}

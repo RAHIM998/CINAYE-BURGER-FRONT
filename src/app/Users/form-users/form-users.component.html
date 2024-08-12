@@ -66,8 +66,8 @@
       </mat-error>
     </mat-form-field>
     <div class="button-group">
-      <button mat-raised-button color="primary" type="submit">{{this.id ? 'Modifier' : 'Ajouter'}}</button>
-      <button mat-raised-button color="warn" type="reset">Annuler</button>
+      <button mat-raised-button color="primary" type="submit" [disabled]="userForm.invalid">{{this.id ? 'Modifier' : 'Ajouter'}}</button>
+      <button mat-raised-button color="warn" type="reset" [disabled]="userForm.invalid">Annuler</button>
     </div>
   </form>
 </div>

@@ -1,0 +1,31 @@
+<div class="content table-responsive table-full-width">
+    <h1>Liste des burgers archivés</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="text-center">Id</th>
+          <th class="text-center">Nom</th>
+          <th class="text-center">Prix</th>
+          <th class="text-center">Image</th>
+          <th class="text-center">Description</th>
+          <th class="text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let archivedBerger of TabBurgerArchived">
+          <td class="text-center">{{archivedBerger.id}}</td>
+          <td class="text-center">{{archivedBerger.name}}</td>
+          <td class="text-center">{{archivedBerger.price}}</td>
+          <td class="text-center">
+            <img src="data:image/png;base64,{{archivedBerger.image}}" style="max-width: 100px; max-height: 100px; object-fit: cover;" alt="Image du burger">
+          </td>
+          <td class="text-center">{{archivedBerger.description}}</td>
+          <td class="td-actions text-center">
+            <a rel="tooltip" title="Désarchiver" class="btn btn-primary btn-simple btn-xs" (click)="unarchiveBurger(archivedBerger.id)">
+              <i class="fa fa-undo"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

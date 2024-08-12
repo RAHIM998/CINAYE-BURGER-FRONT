@@ -1,0 +1,55 @@
+<div>
+  <button class="custom-button" type="button" routerLink="/addBurger">
+    Ajouter
+  </button>
+  
+  <button rel="tooltip" title="Archive" class="archive btn btn-warning btn-simple btn-xs" routerLink="/archivedBurger">
+    <i class="fa fa-archive"></i> Archives
+  </button>
+</div>
+
+<br><br>
+
+<div class="content table-responsive table-full-width">
+  <table class="table">
+    <thead>
+      <tr>
+        <th class="text-center">Id</th>
+        <th class="text-center">Nom</th>
+        <th class="text-center">Prix</th>
+        <th class="text-center">Image</th>
+        <th class="text-center">Description</th>
+        <th class="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let burger of TabBurger">
+        <td class="text-center">{{burger.id}}</td>
+        <td class="text-center">{{burger.name}}</td>
+        <td class="text-center">{{burger.price}}</td>
+        <td class="text-center">
+          <img src="data:image/png;base64,{{burger.image}}" style="max-width: 100px; max-height: 100px; object-fit: cover;" alt="Image du burger">
+        </td>
+        <td class="text-center">{{burger.description}}</td>
+        <td class="td-actions text-center">
+          <a rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs" routerLink="/detailsBurger/{{burger.id}}">
+            <i class="fa fa-user"></i>
+          </a>
+          <a rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs"  routerLink="/updateBurger/{{burger.id}}">
+            <i class="fa fa-edit"></i>
+          </a>
+          <a rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs" (click)="Deleteburger(burger.id)">
+            <i class="fa fa-times"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Custom Pagination Controls -->
+<div class="pagination-controls">
+  <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Previous</button>
+  <span>Page {{currentPage}} of {{totalPages}}</span>
+  <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">Next</button>
+</div>
