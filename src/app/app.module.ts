@@ -15,7 +15,7 @@ import { OrdersComponent } from './Orders/orders/orders.component';
 import { PaymentsComponent } from './Payments/payments/payments.component';
 import { UsersComponent } from './Users/users/users.component';
 import { AccueilComponent } from './Accueil/accueil/accueil.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormUsersComponent } from './Users/form-users/form-users.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCommonModule } from '@angular/material/core';
@@ -25,6 +25,13 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { DetailsBurgerComponent } from './Burger/details-burger/details-burger.component';
 import { ArchivedBurgerComponent } from './Burger/archived-burger/archived-burger.component';
 import { DetailsPaymentsComponent } from './Payments/details-payments/details-payments.component';
+import { DetailsOrdersComponent } from './Orders/details-orders/details-orders.component';
+import { AuthComponent } from './auth/auth.component';
+import { AuthInterceptor } from './auth/auth.interceptor';
+import { CatalogComponent } from './Catalogue/catalog/catalog.component';
+import { DetailsProduitsComponent } from './Catalogue/details-produits/details-produits.component';
+import { AdminNavbarComponent } from './admin-navbar/admin-navbar.component';
+import { CatalogNavbarComponent } from './catalog-navbar/catalog-navbar.component'; 
 
 
 @NgModule({
@@ -41,6 +48,12 @@ import { DetailsPaymentsComponent } from './Payments/details-payments/details-pa
     DetailsBurgerComponent,
     ArchivedBurgerComponent,
     DetailsPaymentsComponent,
+    DetailsOrdersComponent,
+    AuthComponent,
+    CatalogComponent,
+    DetailsProduitsComponent,
+    AdminNavbarComponent,
+    CatalogNavbarComponent,
     
   ],
   imports: [
@@ -53,13 +66,19 @@ import { DetailsPaymentsComponent } from './Payments/details-payments/details-pa
     MatInputModule,
     MatButtonModule,
     MatIconModule,
+    FormsModule,
     BrowserAnimationsModule,
     MatCommonModule,
     MatCardModule,
+    HttpClientModule, 
     MatPaginatorModule
 
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

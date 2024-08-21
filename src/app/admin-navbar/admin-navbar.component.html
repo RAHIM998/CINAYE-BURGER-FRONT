@@ -1,0 +1,60 @@
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<div class="m-1" *ngIf="showNavbar">
+  <nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+    <a class="navbar-brand" routerLink="accueil">CINAYE BURGER</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item mx-3">
+          <a class="nav-link" routerLink="accueil">
+            Accueil
+          </a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link" routerLink="burger">
+            <i class="fas fa-hamburger"></i>
+            Burger
+          </a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link" routerLink="order">
+            <i class="fas fa-receipt"></i>
+            Commande
+          </a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link" routerLink="user">
+            <i class="fas fa-user"></i>
+            Utilisateur
+          </a>
+        </li>
+        <li class="nav-item mx-3">
+          <a class="nav-link" routerLink="payment">
+            <i class="fas fa-credit-card"></i>
+            Paiements
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link logout-link" (click)="logout()">
+            <i class="fas fa-sign-out-alt"></i>
+            Déconnexion
+          </a>
+        </li>
+        
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<br>
+
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+

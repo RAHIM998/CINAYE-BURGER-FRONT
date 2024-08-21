@@ -11,8 +11,12 @@ import { FormBurgerComponent } from './Burger/form-burger/form-burger.component'
 import { DetailsBurgerComponent } from './Burger/details-burger/details-burger.component';
 import { ArchivedBurgerComponent } from './Burger/archived-burger/archived-burger.component';
 import { DetailsPaymentsComponent } from './Payments/details-payments/details-payments.component';
+import { DetailsOrdersComponent } from './Orders/details-orders/details-orders.component';
+import { AuthComponent } from './auth/auth.component';
+import { CatalogComponent } from './Catalogue/catalog/catalog.component';
 
 const routes: Routes = [
+  { path: '', component: CatalogComponent },
   { path: 'accueil', component: AccueilComponent },
   { path: 'user', component: UsersComponent },
   { path: 'burger', component: BurgerComponent },
@@ -26,6 +30,8 @@ const routes: Routes = [
   { path: 'detailsBurger/:id', component:  DetailsBurgerComponent},
   { path: 'archivedBurger', component:  ArchivedBurgerComponent},
   { path: 'detailsPayments/:id', component:  DetailsPaymentsComponent},
+  { path: 'detailsOrders/:id', component:  DetailsOrdersComponent},
+  { path: 'login', component:  AuthComponent},
 ];
 
 @NgModule({

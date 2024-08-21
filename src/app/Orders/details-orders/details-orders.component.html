@@ -1,0 +1,51 @@
+<div *ngIf="order">
+    <h2>Détails de la Commande #{{ order.id }}</h2>
+    <p>Numéro de commande: {{ order.numberOrder }}</p>
+    <p>Date de commande: {{ order.dateOrder | date:'dd/MM/yyyy' }}</p>
+  
+    <div class="client-info">
+        <h2>Client : {{ order.user.name }}</h2>
+        <p class="address">Téléphone : {{ order.user.telephone }}</p>
+        <p class="address">Adresse de livraison: {{ order.addressLivraison }}</p>
+    </div>
+  
+    <h2 class="centered-title">Burgers commandés</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nom du Burger</th>
+          <th>Quantité</th>
+          <th>Prix</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let burger of order.burgers">
+          <td>{{ burger.name }}</td>
+          <td>{{ burger.pivot.quantity }}</td> 
+          <td>{{ burger.pivot.unitPrice}}<span class="currency"> FCFA</span></td> 
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="2" class="text-right"><strong>Montant Total :</strong></td>
+          <td class="text-bold">{{ order.amountOrder }} <span class="currency">FCFA</span></td>
+        </tr>
+      </tfoot>
+      
+    </table>
+    
+    <div class="button-group">
+        <button class="custom-button confirm-button" (click)="UpdateStatut(order.id, 'paid')">Confirmer</button>
+        <button class="custom-button cancel-button" (click)="UpdateStatut(order.id, 'cancelled')">Annuler</button>
+      </div>
+      
+</div>
+
+<div *ngIf="errorMessage" class="alert alert-danger mt-3 offset-4 custom-alert">
+    <i class="fas fa-exclamation-triangle"></i> 
+    <span>{{ errorMessage }}</span>
+  </div>
+  
+<div *ngIf="error">
+    <p>{{ error }}</p>
+</div>

@@ -7,35 +7,33 @@ import { PaymentServiceService } from 'src/app/Services/PaymentServices/payment-
   templateUrl: './payments.component.html',
   styleUrls: ['./payments.component.css']
 })
-export class PaymentsComponent implements OnInit{
+export class PaymentsComponent implements OnInit {
 
-  TabPayment : Payments [] = [];
+  TabPayment: Payments[] = [];
   showTotal: boolean = false;
 
-  constructor(private paymentService : PaymentServiceService){}
+  constructor(private paymentService: PaymentServiceService) { }
 
-  ngOnInit(): void {  
+  ngOnInit(): void {
     this.getTabPaiement();
   }
 
-
-  //Récupération de la liste des paaiements 
   getTabPaiement() {
     this.paymentService.getAllPayments().subscribe(
       (response) => {
         this.TabPayment = response.data;
       },
       (error) => {
-        console.log(error);
+        console.error('Erreur lors de la récupération des paiements:', error);
       }
-    )
+    );
   }
 
   loadTodayPayments(): void {
     this.paymentService.getPaymentsForToday().subscribe(
       (response) => {
         this.TabPayment = response.data;
-        this.showTotal = true; 
+        this.showTotal = true;
       },
       (error) => {
         console.error('Erreur lors de la récupération des paiements du jour:', error);
@@ -46,5 +44,4 @@ export class PaymentsComponent implements OnInit{
   getTotalAmount(): number {
     return this.TabPayment.reduce((total: number, paie: Payments) => total + parseFloat(paie.amountOrder), 0);
   }
-  
 }

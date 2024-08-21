@@ -22,14 +22,15 @@
     <tbody>
       <tr *ngFor="let paie of TabPayment">
         <td class="text-center">{{ paie.id }}</td>
-        <td class="text-center">{{ paie.orders_id }}</td>
+        <td class="text-center">{{ paie.orders?.numberOrder || 'N/A' }}</td>
         <td class="text-center">{{ paie.amountOrder }}</td>
         <td class="text-center">{{ paie.payment_date }}</td>
         <td class="td-actions text-center">
-          <a rel="tooltip" title="View Details" class="btn btn-info btn-simple btn-xs" routerLink="/detailsPayments/{{paie.id}}">
-            <i class="fa fa-user"></i>
-          </a>
+            <a rel="tooltip" title="View Details" class="btn btn-info btn-simple btn-xs" routerLink="/detailsPayments/{{paie.id}}">
+                <i class="fa fa-user"></i>
+            </a>
         </td>
+        
       </tr>
     </tbody>
     <tfoot *ngIf="showTotal">

@@ -5,5 +5,14 @@ export class Burgers {
     name ! : string;
     price ! : string;
     image ! : Binary;
-    description ! : Text
+    description ! : Text;
+    pivot!: Pivot; 
 }
+
+
+export interface Pivot {
+    order_id: number;
+    burger_id: number;
+    quantity: number;
+    unitPrice: string;
+  }

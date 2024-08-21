@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Payments } from 'src/app/model/Payments/payments';
 
 @Injectable({
@@ -14,9 +14,12 @@ export class PaymentServiceService {
 
 
    // Requête de récupération de la liste des burgers
-   getAllPayments(): Observable <{ success: boolean, message: string, data: Payments[] }>{
-    return this.http.get<{ success: boolean, message: string, data: Payments[] }>(this.apiUrl);
-  }
+   getAllPayments(): Observable<{ success: boolean, message: string, data: Payments[] }> {
+    return this.http.get<{ success: boolean, message: string, data: Payments[] }>(this.apiUrl).pipe(
+        tap(response => console.log('Données de paiement:', response))
+    );
+}
+
 
 
   //Paiements du jour 
